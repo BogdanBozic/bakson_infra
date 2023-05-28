@@ -14,3 +14,9 @@ module "nginx-controller" {
     }
   ]
 }
+
+module "cert_manager" {
+  source        = "terraform-iaac/cert-manager/kubernetes"
+
+  cluster_issuer_email                   = var.email
+}
