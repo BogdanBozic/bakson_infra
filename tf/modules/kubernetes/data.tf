@@ -27,3 +27,11 @@ data "aws_lb" "nlb_ingress_nginx" {
     "kubernetes.io/service-name" = "kube-system/ingress-nginx-controller"
   }
 }
+
+data "github_repository" "github_app_repo" {
+    full_name = "BogdanBozic/${var.app_name}"
+}
+
+data "github_user" "current" {
+  username = ""
+}
