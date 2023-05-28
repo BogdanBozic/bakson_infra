@@ -24,6 +24,14 @@ data "aws_lb" "nlb_ingress_nginx" {
   depends_on = [module.nginx-controller]
   tags = {
     "kubernetes.io/cluster/bakson_project" = "owned"
-    "kubernetes.io/service-name" = "kube-system/ingress-nginx-controller"
+    "kubernetes.io/service-name"           = "kube-system/ingress-nginx-controller"
   }
+}
+
+data "github_repository" "github_app_repo" {
+  full_name = "BogdanBozic/${var.app_name}"
+}
+
+data "github_user" "current" {
+  username = ""
 }
