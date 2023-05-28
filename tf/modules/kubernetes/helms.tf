@@ -1,5 +1,5 @@
 module "nginx-controller" {
-  source  = "terraform-iaac/nginx-controller/helm"
+  source = "terraform-iaac/nginx-controller/helm"
 
   additional_set = [
     {
@@ -16,7 +16,7 @@ module "nginx-controller" {
 }
 
 module "cert_manager" {
-  source        = "terraform-iaac/cert-manager/kubernetes"
+  source = "terraform-iaac/cert-manager/kubernetes"
 
-  cluster_issuer_email                   = var.email
+  cluster_issuer_email = var.email
 }
