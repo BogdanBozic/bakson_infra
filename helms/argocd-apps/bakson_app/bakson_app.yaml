@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: git@github.com:BogdanBozic/bakson_infra.git
     targetRevision: HEAD
-    path: "./helms/app-charts/bakson_app"
+    path: "./helms/app-charts/bakson-app"
     directory:
       recurse: true
   destination:

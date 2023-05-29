@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "bakson_app.name" -}}
+{{- define "bakson-app.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "bakson_app.fullname" -}}
+{{- define "bakson-app.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "bakson_app.chart" -}}
+{{- define "bakson-app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "bakson_app.labels" -}}
-helm.sh/chart: {{ include "bakson_app.chart" . }}
-{{ include "bakson_app.selectorLabels" . }}
+{{- define "bakson-app.labels" -}}
+helm.sh/chart: {{ include "bakson-app.chart" . }}
+{{ include "bakson-app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "bakson_app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "bakson_app.name" . }}
+{{- define "bakson-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "bakson-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "bakson_app.serviceAccountName" -}}
+{{- define "bakson-app.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "bakson_app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "bakson-app.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
