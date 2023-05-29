@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bakson_app
+  name: bakson-app
   namespace: argocd
 spec:
-  project: bakson_project
+  project: bakson-project
   source:
     repoURL: git@github.com:BogdanBozic/bakson_infra.git
     targetRevision: HEAD
