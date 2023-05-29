@@ -20,6 +20,10 @@ terraform {
       source  = "gavinbunney/kubectl"
       version = "1.13.0"
     }
+    argocd = {
+        source = "oboukili/argocd"
+        version = "5.0.1"
+    }
   }
 }
 
@@ -63,4 +67,8 @@ provider "kubectl" {
     args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.bakson.name]
     command     = "aws"
   }
+}
+
+provider "argocd" {
+  server_addr = "argocd.bastovansurcinski.click"
 }
