@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: 967464805913.dkr.ecr.us-east-1.amazonaws.com/bakson_project
   pullPolicy: Always
-  tag: "5124290193"
+  tag: "5124489688"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
